@@ -1,0 +1,1412 @@
+/* General */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: #3b1b0d;
+    background: url("https://plus.unsplash.com/premium_photo-1791807233612-2a16f775f4ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D") center / cover fixed;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #3b1b0d;
+    color: #c8cbca;
+    font-weight: bold;
+    height: 2.5rem;
+    padding-inline: 1rem;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+}
+
+.body {
+    display: flex;
+    width: 90vw;
+    min-height: 80vh;
+    margin: 5vh auto;
+    padding: 2rem;
+    color: #3b1b0d;
+    backdrop-filter: blur(10px);
+    border: #c8cbca solid 2px;
+}
+
+.body > main {
+    flex: 1;
+    padding: 0 2rem;
+}
+
+.container {
+    display: flex;
+}
+
+.verticalContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input:not([type="checkbox"]) {
+    width: 25rem;
+    height: 1.5rem;
+    border-radius: 10px;
+    border: 0;
+    padding: 0.5rem;
+}
+
+input[type="checkbox"] {
+    accent-color: #3b1b0d;
+}
+
+/* Sidebar */
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    width: 220px;
+    flex-shrink: 0;
+    margin-right: 1rem;
+    padding: 1rem 0.75rem;
+    box-sizing: border-box;
+    background-color: #e2e4e3;
+    border-radius: 12px;
+    color: #3b1b0d;
+    overflow: hidden;
+}
+
+.nav h2 {
+    margin: 0.25rem 0.75rem 1.25rem;
+}
+
+.nav ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navDivider {
+    height: 1px;
+    margin: 0.4rem 0.5rem;
+    background-color: rgba(59, 27, 13, 0.15);
+}
+
+.navButton {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.55rem 0.75rem;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #3b1b0d;
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.navButton:hover {
+    background-color: rgba(59, 27, 13, 0.08);
+}
+
+.navButton.active {
+    background-color: rgba(59, 27, 13, 0.14);
+    font-weight: 700;
+}
+
+.navLogout {
+    margin-top: auto;
+    width: 100%;
+    justify-content: center;
+}
+
+.taskNav {
+    margin-inline: auto;
+}
+
+/* Dashboard */
+
+.dashboard {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+.dashboardNav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dashboardNav h1 {
+    margin: 0;
+}
+
+/* icons */
+
+.headerActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.iconButton {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    border-radius: 50%;
+    background-color: #e2e4e3;
+    color: #3b1b0d;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.iconButton:hover {
+    background-color: #c8cbca;
+}
+
+/* Notifications dropdown */
+
+.bellWrapper {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 10;
+    width: 240px;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    background-color: #e2e4e3;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown h4 {
+    margin: 0 0 0.5rem;
+}
+
+.dropdown ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+/* Search */
+
+.searchWrapper {
+    position: relative;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: #e2e4e3;
+    overflow: hidden;
+    transition: width 0.3s ease;
+}
+
+.searchBox.open {
+    width: 260px;
+}
+
+.searchToggle {
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: transparent;
+    color: #3b1b0d;
+    cursor: pointer;
+}
+
+/* Two classes, so it beats the global input rule */
+.searchBox .searchInput {
+    flex: 1;
+    min-width: 0;
+    width: auto;
+    height: 100%;
+    padding: 0 1rem 0 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: #3b1b0d;
+    font: inherit;
+    outline: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.searchBox.open .searchInput {
+    opacity: 1;
+    transition-delay: 0.1s;
+}
+
+.searchDropdown {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    z-index: 10;
+    width: 260px;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 12px;
+    background-color: #e2e4e3;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.searchDropdown .placeholder {
+    margin: 0.4rem 0.75rem;
+}
+
+.searchResult {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 0;
+    border-radius: 8px;
+    background: transparent;
+    color: #3b1b0d;
+    font: inherit;
+    font-size: 0.9rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.searchResult:hover {
+    background-color: rgba(59, 27, 13, 0.08);
+}
+
+/* main dashboard */
+
+.dashboardGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    box-sizing: border-box;
+    padding: 1.25rem 1.5rem;
+    border-radius: 16px;
+}
+
+.card h3 {
+    margin: 0 0 1rem;
+}
+
+.card.dark {
+    background-color: #3b1b0d;
+    color: #e2e4e3;
+}
+
+.card.light {
+    background-color: #e2e4e3;
+}
+
+.placeholder {
+    opacity: 0.6;
+    font-size: 0.9rem;
+}
+
+/* Overview card */
+
+.bigNumber {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.bigLabel {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.85rem;
+    opacity: 0.8;
+}
+
+.statTiles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.statTile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.4rem 0.25rem;
+    border-radius: 10px;
+    background-color: #e2e4e3;
+    color: #3b1b0d;
+}
+
+.statTile strong {
+    font-size: 1.1rem;
+}
+
+.statTile span {
+    font-size: 0.75rem;
+}
+
+/* Progress donut */
+
+.donut {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 110px;
+    height: 110px;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: conic-gradient(#3b1b0d calc(var(--pct) * 1%), #c8cbca 0);
+}
+
+.donut::before {
+    content: "";
+    position: absolute;
+    inset: 14px;
+    border-radius: 50%;
+    background-color: #e2e4e3;
+}
+
+.donut span {
+    position: relative;
+    font-weight: 700;
+}
+
+/* Goals */
+
+.goalList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.goalList li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.strike {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Tasks in progress */
+
+.inProcess {
+    grid-column: span 2;
+}
+
+.inProcess h3 {
+    margin: 0 0 1rem;
+}
+
+.taskRow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.taskCard {
+    min-height: 130px;
+}
+
+.taskCard p {
+    margin: 0.4rem 0 0;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.addTask {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    border: 2px dashed rgba(59, 27, 13, 0.5);
+    border-radius: 16px;
+    color: #3b1b0d;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.addTask:hover {
+    background-color: rgba(59, 27, 13, 0.06);
+}
+
+/* Tasks page */
+
+.tasksPage {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-width: 0;
+}
+
+.tasksPage h1 {
+    margin: 0;
+}
+
+.taskForm {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+/* Beats the global input rule so the fields share the row */
+.taskForm input[type="text"] {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+}
+
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: #3b1b0d;
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.tab:hover {
+    background-color: rgba(59, 27, 13, 0.08);
+}
+
+.tab.active {
+    background-color: #3b1b0d;
+    color: #e2e4e3;
+}
+
+.tabCount {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.taskList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.taskItem {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.9rem 1.1rem;
+    border-radius: 14px;
+    background-color: #e2e4e3;
+}
+
+.taskText {
+    flex: 1;
+    min-width: 0;
+}
+
+.taskText p {
+    margin: 0.2rem 0 0;
+    font-size: 0.85rem;
+    opacity: 0.75;
+}
+
+.taskItem.done .taskText {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.deleteButton {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #3b1b0d;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background-color: rgba(59, 27, 13, 0.1);
+}
+
+.tabsRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+/* Due dates */
+
+.dueBadge {
+    flex-shrink: 0;
+    padding: 0.15rem 0.6rem;
+    border: 0;
+    border-radius: 999px;
+    background-color: rgba(59, 27, 13, 0.1);
+    color: inherit;
+    font: inherit;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.dueBadge:hover {
+    background-color: rgba(59, 27, 13, 0.18);
+}
+
+.dueBadge.overdue {
+    background-color: #3b1b0d;
+    color: #e2e4e3;
+}
+
+/* "Add date" on tasks that have none */
+.dueEmpty {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: transparent;
+    border: 1px dashed rgba(59, 27, 13, 0.4);
+    opacity: 0.7;
+}
+
+.dueGroup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    flex-shrink: 0;
+}
+
+.dueClear {
+    display: grid;
+    place-items: center;
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #3b1b0d;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.dueClear:hover {
+    background-color: rgba(59, 27, 13, 0.1);
+    opacity: 1;
+}
+
+/* Two classes, so it beats the global input rule */
+.taskItem .dueInput,
+.dayPanel .dueInput {
+    width: auto;
+    flex-shrink: 0;
+    height: auto;
+    padding: 0.2rem 0.5rem;
+    border: 1px solid rgba(59, 27, 13, 0.3);
+    border-radius: 999px;
+    background: #fff;
+    color: #3b1b0d;
+    font: inherit;
+    font-size: 0.8rem;
+}
+
+/* Editing a task */
+
+.editButton {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: #3b1b0d;
+    cursor: pointer;
+}
+
+.editButton:hover {
+    background-color: rgba(59, 27, 13, 0.1);
+}
+
+.taskItem.editing {
+    outline: 2px solid rgba(59, 27, 13, 0.25);
+}
+
+.editForm {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.6rem;
+    width: 100%;
+}
+
+/* Beat the global input rule so the fields share the row */
+.editForm input[type="text"] {
+    flex: 1 1 180px;
+    width: auto;
+    min-width: 0;
+}
+
+.editForm input[type="date"] {
+    width: auto;
+    flex-shrink: 0;
+    color: #3b1b0d;
+    font: inherit;
+}
+
+.editActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.button.ghost {
+    background: transparent;
+    color: #3b1b0d;
+    border: 1px solid rgba(59, 27, 13, 0.4);
+}
+
+/* Calendar */
+
+.calendarPage {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-width: 0;
+}
+
+.calendarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.calendarHeader h1 {
+    margin: 0;
+}
+
+.monthControls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.monthTitle {
+    min-width: 9rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.calendarNote {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.calendarLayout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 1rem;
+    align-items: start;
+}
+
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 4px;
+}
+
+.weekday {
+    padding: 0.4rem;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.dayCell {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    padding: 0.4rem;
+    box-sizing: border-box;
+    border: 0;
+    border-radius: 12px;
+    background-color: #e2e4e3;
+    color: #3b1b0d;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    overflow: hidden;
+    transition: background 0.15s ease;
+}
+
+.dayCell:hover {
+    background-color: #d6d8d7;
+}
+
+.dayCell.outside {
+    opacity: 0.45;
+}
+
+.dayCell.selected {
+    outline: 2px solid #3b1b0d;
+}
+
+.dayNumber {
+    align-self: flex-start;
+    display: grid;
+    place-items: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.dayCell.today .dayNumber {
+    background-color: #3b1b0d;
+    color: #e2e4e3;
+}
+
+.chip {
+    display: block;
+    padding: 1px 6px;
+    border-radius: 6px;
+    background-color: #3b1b0d;
+    color: #e2e4e3;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chip.done {
+    background-color: rgba(59, 27, 13, 0.2);
+    color: #3b1b0d;
+    text-decoration: line-through;
+}
+
+.moreChip {
+    font-size: 0.7rem;
+    opacity: 0.7;
+}
+
+/* Side panel for the selected day */
+
+.dayPanel {
+    box-sizing: border-box;
+    padding: 1rem 1.25rem;
+    border-radius: 16px;
+    background-color: #e2e4e3;
+}
+
+.dayPanel h3 {
+    margin: 0 0 0.75rem;
+}
+
+.dayList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin: 0 0 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.dayList li {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+}
+
+.dayTitle {
+    flex: 1;
+    min-width: 0;
+}
+
+.dayForm {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dayForm input[type="text"] {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+}
+
+@media (max-width: 900px) {
+    .calendarLayout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Trash */
+
+.trashNote {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+.taskText .trashMeta {
+    font-size: 0.75rem;
+    opacity: 0.6;
+}
+
+.restoreButton {
+    flex-shrink: 0;
+    height: 2rem;
+    font-size: 0.85rem;
+}
+
+.trashActions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Settings */
+
+.settingsCard {
+    max-width: 640px;
+}
+
+.settingRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.settingRow h3 {
+    margin: 0 0 0.25rem;
+}
+
+.settingRow p {
+    margin: 0;
+    font-size: 0.85rem;
+    opacity: 0.7;
+}
+
+/* ===== Dark theme ===== */
+/* Your light styles stay exactly as they are. When <html> has
+   data-theme="dark", these rules override the colours. */
+
+[data-theme="dark"] {
+    color-scheme: dark; /* dark date pickers, scrollbars, etc. */
+    --text: #eadfd8;
+    --text-rgb: 234, 223, 216;
+    --on-text: #1f1713;
+    --surface: #2b221e;
+    --surface-hover: #362c27;
+    --surface-strong: #40342d;
+}
+
+[data-theme="dark"] body {
+    color: var(--text);
+}
+
+[data-theme="dark"] .body {
+    color: var(--text);
+    background-color: rgba(18, 12, 9, 0.6);
+    border-color: var(--surface-strong);
+}
+
+/* Buttons and inputs */
+
+[data-theme="dark"] .button {
+    background-color: var(--text);
+    color: var(--on-text);
+}
+
+[data-theme="dark"] .button.ghost {
+    background: transparent;
+    color: var(--text);
+    border-color: rgba(var(--text-rgb), 0.4);
+}
+
+[data-theme="dark"] input:not([type="checkbox"]) {
+    background-color: var(--surface-strong);
+    color: var(--text);
+}
+
+[data-theme="dark"] input::placeholder {
+    color: rgba(var(--text-rgb), 0.5);
+}
+
+[data-theme="dark"] input[type="checkbox"] {
+    accent-color: var(--text);
+}
+
+/* Sidebar */
+
+[data-theme="dark"] .nav {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+[data-theme="dark"] .navButton {
+    color: var(--text);
+}
+
+[data-theme="dark"] .navButton:hover {
+    background-color: rgba(var(--text-rgb), 0.08);
+}
+
+[data-theme="dark"] .navButton.active {
+    background-color: rgba(var(--text-rgb), 0.14);
+}
+
+[data-theme="dark"] .navDivider {
+    background-color: rgba(var(--text-rgb), 0.15);
+}
+
+/* Dashboard */
+
+[data-theme="dark"] .iconButton {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+[data-theme="dark"] .iconButton:hover {
+    background-color: var(--surface-strong);
+}
+
+[data-theme="dark"] .card.light {
+    background-color: var(--surface);
+}
+
+[data-theme="dark"] .card.dark {
+    background-color: var(--text);
+    color: var(--on-text);
+}
+
+[data-theme="dark"] .statTile {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+[data-theme="dark"] .donut {
+    background: conic-gradient(var(--text) calc(var(--pct) * 1%), var(--surface-strong) 0);
+}
+
+[data-theme="dark"] .donut::before {
+    background-color: var(--surface);
+}
+
+[data-theme="dark"] .addTask {
+    color: var(--text);
+    border-color: rgba(var(--text-rgb), 0.5);
+}
+
+[data-theme="dark"] .addTask:hover {
+    background-color: rgba(var(--text-rgb), 0.08);
+}
+
+/* Tasks page */
+
+[data-theme="dark"] .tab {
+    color: var(--text);
+}
+
+[data-theme="dark"] .tab:hover {
+    background-color: rgba(var(--text-rgb), 0.08);
+}
+
+[data-theme="dark"] .tab.active {
+    background-color: var(--text);
+    color: var(--on-text);
+}
+
+[data-theme="dark"] .taskItem {
+    background-color: var(--surface);
+}
+
+[data-theme="dark"] .taskItem.editing {
+    outline-color: rgba(var(--text-rgb), 0.3);
+}
+
+[data-theme="dark"] .editButton,
+[data-theme="dark"] .deleteButton {
+    color: var(--text);
+}
+
+[data-theme="dark"] .editButton:hover,
+[data-theme="dark"] .deleteButton:hover {
+    background-color: rgba(var(--text-rgb), 0.12);
+}
+
+/* Due dates */
+
+[data-theme="dark"] .dueBadge {
+    background-color: rgba(var(--text-rgb), 0.12);
+    color: var(--text);
+}
+
+[data-theme="dark"] .dueBadge:hover {
+    background-color: rgba(var(--text-rgb), 0.2);
+}
+
+[data-theme="dark"] .dueBadge.overdue {
+    background-color: var(--text);
+    color: var(--on-text);
+}
+
+[data-theme="dark"] .dueEmpty {
+    background: transparent;
+    border-color: rgba(var(--text-rgb), 0.4);
+}
+
+[data-theme="dark"] .dueClear {
+    color: var(--text);
+}
+
+[data-theme="dark"] .dueClear:hover {
+    background-color: rgba(var(--text-rgb), 0.12);
+}
+
+[data-theme="dark"] .taskItem .dueInput,
+[data-theme="dark"] .dayPanel .dueInput {
+    background-color: var(--surface-strong);
+    color: var(--text);
+    border-color: rgba(var(--text-rgb), 0.3);
+}
+
+/* Calendar */
+
+[data-theme="dark"] .dayCell {
+    background-color: var(--surface);
+    color: var(--text);
+}
+
+[data-theme="dark"] .dayCell:hover {
+    background-color: var(--surface-hover);
+}
+
+[data-theme="dark"] .dayCell.selected {
+    outline-color: var(--text);
+}
+
+[data-theme="dark"] .dayCell.today .dayNumber {
+    background-color: var(--text);
+    color: var(--on-text);
+}
+
+[data-theme="dark"] .chip {
+    background-color: var(--text);
+    color: var(--on-text);
+}
+
+[data-theme="dark"] .chip.done {
+    background-color: rgba(var(--text-rgb), 0.2);
+    color: var(--text);
+}
+
+[data-theme="dark"] .dayPanel {
+    background-color: var(--surface);
+}
+
+/* Notification bell and search dropdowns */
+
+[data-theme="dark"] .dropdown,
+[data-theme="dark"] .searchDropdown {
+    background-color: var(--surface);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .searchBox {
+    background-color: var(--surface);
+}
+
+[data-theme="dark"] .searchToggle {
+    color: var(--text);
+}
+
+[data-theme="dark"] .searchBox .searchInput {
+    background: transparent;
+    color: var(--text);
+}
+
+[data-theme="dark"] .searchResult {
+    color: var(--text);
+}
+
+[data-theme="dark"] .searchResult:hover {
+    background-color: rgba(var(--text-rgb), 0.08);
+}
+
+/* Login / signup, dark */
+
+[data-theme="dark"] .authFrame {
+    background-color: var(--surface);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .authCard {
+    background-color: #231b17;
+    color: var(--text);
+}
+
+[data-theme="dark"] .authCard .authInput {
+    background: transparent;
+    color: var(--text);
+    border-bottom-color: rgba(var(--text-rgb), 0.35);
+}
+
+[data-theme="dark"] .authCard .authInput:focus {
+    border-bottom-color: var(--text);
+}
+
+[data-theme="dark"] .authNote {
+    background-color: rgba(var(--text-rgb), 0.12);
+}
+
+[data-theme="dark"] .authError {
+    color: #ff8a7a;
+}
+
+/* Login / signup */
+
+.authPage {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+}
+
+.authFrame {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: min(960px, 100%);
+    min-height: 560px;
+    padding: 8px;
+    box-sizing: border-box;
+    border-radius: 24px;
+    background-color: #e2e4e3;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.authArt {
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+}
+
+.authArt svg {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+}
+
+.authArt [data-pupil] {
+    transition: transform 0.12s ease-out;
+}
+
+.authCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem 3rem;
+    box-sizing: border-box;
+    border-radius: 18px;
+    background-color: #fafafa;
+}
+
+.authLogo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.authLogo svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+}
+
+.authCard h1 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.authSub {
+    margin: 0.25rem 0 1.75rem;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.65;
+}
+
+.authNote {
+    margin: 0 0 1rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+    background-color: rgba(59, 27, 13, 0.08);
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.75rem;
+}
+
+.field > span {
+    opacity: 0.7;
+}
+
+.fieldRow {
+    display: flex;
+    align-items: center;
+}
+
+/* Two classes, so it beats the global input rule */
+.authCard .authInput {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    height: 2rem;
+    padding: 0.25rem 0;
+    border: 0;
+    border-bottom: 1.5px solid rgba(59, 27, 13, 0.35);
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.15s ease;
+}
+
+.authCard .authInput:focus {
+    border-bottom-color: #3b1b0d;
+}
+
+.eyeButton {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.eyeButton:hover {
+    opacity: 1;
+}
+
+.authError {
+    margin: 0;
+    min-height: 1rem;
+    font-size: 0.8rem;
+    color: #b42318;
+}
+
+.button.authSubmit {
+    width: 100%;
+    height: 2.75rem;
+    justify-content: center;
+    border-radius: 999px;
+}
+
+.authSwitch {
+    margin: 1.5rem 0 0;
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.75;
+}
+
+.authSwitch a {
+    color: inherit;
+    font-weight: 700;
+}
+
+@media (max-width: 760px) {
+    .authFrame {
+        grid-template-columns: 1fr;
+    }
+
+    .authArt {
+        display: none;
+    }
+
+    .authCard {
+        padding: 2rem 1.5rem;
+    }
+}
